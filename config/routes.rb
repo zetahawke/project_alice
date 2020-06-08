@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
+  root 'home#index'
+
   resources :tags
   resources :stocks
   resources :products
   resources :categories
   devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'home#index'
 
   namespace :admin do
-    # resource :products
+    resource :categories
+    resource :products do
+      resource :stocks
+    end
+    resource :tags
     get '/', to: 'home#index', as: :root
   end
 end
