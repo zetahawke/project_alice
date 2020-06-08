@@ -1,0 +1,13 @@
+p#notice
+  = notice
+p
+  strong
+    | Amount:
+  = @stock.amount
+p
+  strong
+    | Product:
+  = @stock.product_id
+= link_to 'Edit', edit_stock_path(@stock)
+|  | 
+= link_to 'Back', stocks_path

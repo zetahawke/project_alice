@@ -1,0 +1,37 @@
+p#notice
+  = notice
+p
+  strong
+    | Name:
+  = @product.name
+p
+  strong
+    | Description:
+  = @product.description
+p
+  strong
+    | Price:
+  = @product.price
+p
+  strong
+    | Minimum price:
+  = @product.minimum_price
+p
+  strong
+    | Minimum quantity:
+  = @product.minimum_quantity
+p
+  strong
+    | Facebook link:
+  = @product.facebook_link
+p
+  strong
+    | Instagram link:
+  = @product.instagram_link
+p
+  strong
+    | Category:
+  = @product.category_id
+= link_to 'Edit', edit_product_path(@product)
+|  | 
+= link_to 'Back', products_path
