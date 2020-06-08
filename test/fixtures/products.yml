@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  price: 1
+  minimum_price: 1
+  minimum_quantity: 1
+  facebook_link: MyString
+  instagram_link: MyString
+  category: one
+
+two:
+  name: MyString
+  description: MyString
+  price: 1
+  minimum_price: 1
+  minimum_quantity: 1
+  facebook_link: MyString
+  instagram_link: MyString
+  category: two
