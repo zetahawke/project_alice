@@ -1,0 +1,19 @@
+nav
+  .nav-wrapper
+    a.brand-logo href="#!"  ImportadoraAli
+    a.sidenav-trigger data-target="mobile-demo" href="/" 
+      i.material-icons menu
+    ul.right.hide-on-med-and-down
+      li
+        = link_to 'Productos', products_path
+      li
+        = link_to 'Categorias', categories_path
+      li
+        = link_to 'Contacto', contact_path
+ul#mobile-demo.sidenav
+  li
+    = link_to 'Productos', products_path
+  li
+    = link_to 'Categorias', categories_path
+  li
+    = link_to 'Contacto', contact_path

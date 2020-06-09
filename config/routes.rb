@@ -15,4 +15,6 @@ Rails.application.routes.draw do
     resource :tags
     get '/', to: 'home#index', as: :root
   end
+
+  get '/contact', to: 'home#contact', as: :contact
 end

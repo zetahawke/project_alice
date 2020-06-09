@@ -1,3 +1,7 @@
 // @import 'materialize-css/dist/css/materialize';
 // @import '../stylesheets/application';
 @import 'materialize-css/dist/css/materialize';
+
+body, html {
+  height:100%;
+}

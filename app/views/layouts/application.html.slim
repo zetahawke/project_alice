@@ -9,8 +9,13 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     link[href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"]
   body
+    - if user_signed_in?
+      = render 'body_lines/admin/navbar'
+    - else
+      = render 'body_lines/navbar'
     p.notice
       = notice
     p.alert
       = alert
     = yield
+    = render 'body_lines/footer'
