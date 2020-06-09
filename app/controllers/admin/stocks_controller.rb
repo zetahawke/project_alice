@@ -1,4 +1,4 @@
-class StocksController < ApplicationController
+class StocksController < AdminController
   before_action :set_stock, only: [:show, :edit, :update, :destroy]
 
   # GET /stocks

@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  resources :tags
-  resources :stocks
-  resources :products
-  resources :categories
+  resources :tags, only: %i[show]
+  resources :products, only: %i[index show]
+  resources :categories, only: %i[index show]
+
   devise_for :users
 
   namespace :admin do
