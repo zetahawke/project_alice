@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  root 'products#index'
 
   resources :tags, only: %i[show]
   resources :products, only: %i[index show]
