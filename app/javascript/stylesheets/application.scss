@@ -6,6 +6,7 @@ $secondary-color: #4db6ac !default;
 
 body, html {
   height:100%;
+  background-color: #eeeeee;
 }
 
 .main-cont {
@@ -15,4 +16,10 @@ body, html {
 .btn-default {
   color: #000000 !important;
   background-color: #eeeeee !important;
+}
+
+.sidebar {
+  transform: translateX(0px);
+  position: relative;
+  width: inherit;
 }

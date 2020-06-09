@@ -1,9 +1,11 @@
-p#notice
-  = notice
+span.card-title
+  | Tag
+hr
+br
 p
   strong
     | Name:
   = @tag.name
-= link_to 'Edit', edit_admin_tag_path(@tag), class: 'btn right'
+= link_to 'Edit', edit_admin_tag_path(@tag), class: 'btn'
 |  | 
-= link_to 'Back', admin_tags_path, class: 'btn btn-default left'
+= link_to 'Back', admin_tags_path, class: 'btn btn-default'

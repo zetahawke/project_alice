@@ -1,5 +1,7 @@
-h2
-  | Admin Log in
+span.card-title
+  | Admin Log In
+hr
+br
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .field
     = f.label :email

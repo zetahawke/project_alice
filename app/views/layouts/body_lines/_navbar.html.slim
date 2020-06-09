@@ -1,7 +1,7 @@
 nav
   .nav-wrapper
     a.brand-logo href="#!"  ImportadoraAli
-    a.sidenav-trigger data-target="mobile-demo" href="/" 
+    a.sidenav-trigger data-target="sidenav-right" href="/" 
       i.material-icons menu
     ul.right.hide-on-med-and-down
       li
@@ -12,7 +12,7 @@ nav
         = link_to 'Contacto', contact_path
       li
         = link_to 'Log in', new_user_session_path
-ul#mobile-demo.sidenav
+ul#sidenav-right.sidenav.sidenav-right
   li
     = link_to 'Productos', products_path
   li

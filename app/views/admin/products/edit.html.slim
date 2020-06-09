@@ -1,6 +1,7 @@
-h1
-  | Editing Product
+span.card-title Editando Producto
+hr
+br
 = render 'form', product: @product
-= link_to 'Show', @product
+= link_to 'Show', @product, class: 'btn'
 |  | 
-= link_to 'Back', admin_products_path
+= link_to 'Back', admin_products_path, class: 'btn btn-default'
