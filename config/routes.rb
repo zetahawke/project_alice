@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :admin do
-    resource :categories
-    resource :products do
-      resource :stocks
+    resources :categories
+    resources :products do
+      resources :stocks
     end
-    resource :tags
+    resources :tags
     get '/', to: 'home#index', as: :root
   end
 
