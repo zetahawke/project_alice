@@ -1,5 +1,7 @@
-h1
-  | Products
+span.card-title
+  | Productos
+hr
+br
 table.table
   thead
     tr
@@ -40,4 +42,4 @@ table.table
         td
           = product.category_id
         td
-          = link_to 'Show', product
+          = link_to 'Show', product, class: 'btn'

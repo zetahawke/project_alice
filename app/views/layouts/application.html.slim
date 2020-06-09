@@ -5,6 +5,7 @@ html
       | AliceProject
     = csrf_meta_tags
     = csp_meta_tag
+    meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0"
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     link[href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"]
@@ -13,10 +14,25 @@ html
       = render 'layouts/body_lines/admin/navbar'
     - else
       = render 'layouts/body_lines/navbar'
-    p.notice
-      = notice
-    p.alert
-      = alert
-    .container.main-cont
-      = yield
-    = render 'layouts/body_lines/footer'
+
+    .wp-100.hp-100
+      - if notice
+        p.notice.green.white-text.m-10.p-10
+          = notice
+      - if alert
+        p.alert.deep-orange.black-text.m-10.p-10
+          = alert
+
+      - if user_signed_in?
+        .container.main-cont
+          .card.p-20
+            = yield
+      - else
+        .row.main-cont
+          .col.l2.hide-on-med-and-down
+            .card
+              = render 'layouts/body_lines/sidenav'
+          .col.m12.l10
+            .card.p-20
+              = yield
+      = render 'layouts/body_lines/footer'

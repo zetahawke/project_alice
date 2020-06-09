@@ -1,9 +1,9 @@
-p
-  strong
-    | Name:
+span.card-title
   = @category.name
+hr
+br
 p
   strong
     | Description:
   = @category.description
-= link_to 'Back', categories_path
+= link_to 'Back', categories_path, class: 'btn btn-default'
