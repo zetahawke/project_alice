@@ -1,4 +1,4 @@
-= form_with(model: tag, local: true) do |form|
+= form_with(model: tag, local: true, url: admin_tags_path) do |form|
   - if tag.errors.any?
     #error_explanation
       h2
@@ -11,5 +11,6 @@
   .field
     = form.label :name
     = form.text_field :name
-  .actions
-    = form.submit
+  .actions.pt-20.mh-70
+    button.btn.btn-small.right type='submit' Guardar
+    = link_to 'Back', admin_tags_path, class: 'btn btn-default left'

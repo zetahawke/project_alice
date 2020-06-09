@@ -1,9 +1,7 @@
-// @import 'materialize-css/dist/css/materialize';
-// @import '../stylesheets/application';
+@import '../../assets/stylesheets/application';
 @import "materialize-css/sass/components/_color-variables";
 $primary-color: #ad1457 !default;
 $secondary-color: #4db6ac !default;
-// @import 'materialize-css/dist/css/materialize';
 @import 'node_modules/materialize-css/sass/materialize.scss';
 
 body, html {
@@ -12,4 +10,9 @@ body, html {
 
 .main-cont {
   min-height: 660px;
+}
+
+.btn-default {
+  color: #000000 !important;
+  background-color: #eeeeee !important;
 }

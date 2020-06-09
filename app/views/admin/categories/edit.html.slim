@@ -1,6 +1,6 @@
 h1
   | Editing Category
 = render 'form', category: @category
-= link_to 'Show', @category
+= link_to 'Show', @category, class: 'btn right'
 |  | 
-= link_to 'Back', categories_path
+= link_to 'Back', categories_path, class: 'btn btn-default left'

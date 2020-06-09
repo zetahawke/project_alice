@@ -20,8 +20,8 @@ table
         td
           = link_to 'Show', stock
         td
-          = link_to 'Edit', edit_stock_path(stock)
+          = link_to 'Edit', edit_admin_stock_path(stock)
         td
           = link_to 'Destroy', stock, method: :delete, data: { confirm: 'Are you sure?' }
 br
-= link_to 'New Stock', new_stock_path
+= link_to 'New Stock', new_admin_stock_path, class: 'btn'
