@@ -4,6 +4,6 @@ p
   strong
     | Name:
   = @tag.name
-= link_to 'Edit', edit_tag_path(@tag)
+= link_to 'Edit', edit_admin_tag_path(@tag), class: 'btn right'
 |  | 
-= link_to 'Back', tags_path
+= link_to 'Back', admin_tags_path, class: 'btn btn-default left'
