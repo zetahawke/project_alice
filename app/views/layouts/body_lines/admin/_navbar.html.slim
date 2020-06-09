@@ -11,7 +11,7 @@ nav
       li
         = link_to 'Tags', admin_tags_path
       li
-        = link_to 'Sign out', destroy_user_session_path
+        = link_to 'Sign out', destroy_user_session_path, method: :delete
 ul#mobile-demo.sidenav
   li
     = link_to 'Productos', admin_products_path
