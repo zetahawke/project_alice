@@ -4,30 +4,30 @@ hr
 br
 p
   strong
-    | Description:
+    | Description: 
   = @product.description
 p
   strong
-    | Price:
-  = @product.price
+    | Price: 
+  = number_to_currency(@product.price, precision: 0)
 p
   strong
-    | Minimum price:
-  = @product.minimum_price
+    | Minimum price: 
+  = number_to_currency(@product.minimum_price, precision: 0)
 p
   strong
-    | Minimum quantity:
+    | Minimum quantity: 
   = @product.minimum_quantity
 p
   strong
-    | Facebook link:
-  = @product.facebook_link
+    | Facebook link: 
+  = link_to 'Link', @product.facebook_link
 p
   strong
-    | Instagram link:
-  = @product.instagram_link
+    | Instagram link: 
+  = link_to 'Link', @product.instagram_link
 p
   strong
-    | Category:
+    | Category: 
   = @product.category_id
 = link_to 'Back', products_path, class: 'btn btn-default'

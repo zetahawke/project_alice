@@ -75,7 +75,7 @@ module Admin
       end
 
       def set_form_url
-        @url = params[:action] == 'edit' ? admin_category_path(@tag) : admin_categories_path
+        @url = params[:action] == 'edit' ? admin_category_path(@category) : admin_categories_path
       end
   end
 end

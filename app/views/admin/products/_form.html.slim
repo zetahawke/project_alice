@@ -1,14 +1,13 @@
-= form_with(model: product, local: true, url: @url) do |form|
+= form_with(model: product, local: true) do |form|
   - if product.errors.any?
     #error_explanation
-      h5
+      h2
         = pluralize(product.errors.count, "error")
         |  prohibited this product from being saved:
       ul
         - product.errors.full_messages.each do |message|
-          li.red.white-text.m-10
-            span.p-10
-              = message
+          li
+            = message
   .field
     = form.label :name
     = form.text_field :name
@@ -32,19 +31,7 @@
     = form.text_field :instagram_link
   .field
     = form.label :category_id
-    = form.select(:category_id) do
-      option value="" disabled='disabled' Elija Categoría
-      = options_for_select(Category.all.pluck(:name, :id), product.category_id)
-  .field
-    = form.label :product_tags
-    select multiple='' name='product[product_tags_attributes][][tag_id]' id='product_product_tags_attributes'
-      option value="" disabled='disabled' Elija Tags
-      - Tag.all.each do |tag|
-        = "<option value='#{tag.id}' #{'selected' if product.product_tags.pluck(:tag_id).include?(tag.id)}>#{tag.name}</option>".html_safe
-  = form.fields_for :stock do |form_stock|
-    .field
-      = form_stock.label :amount
-      = form_stock.number_field :amount
+    = form.text_field :category_id
   .actions.pt-20.mh-70
     button.btn.btn-small.right type='submit' Guardar
     = link_to 'Back', admin_products_path, class: 'btn btn-default left'

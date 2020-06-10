@@ -18,10 +18,10 @@ table.table.responsive-table
         td
           = category.description
         td
-          = link_to 'Show', category
+          = link_to 'Show', admin_category_path(category)
         td
           = link_to 'Edit', edit_admin_category_path(category)
         td
-          = link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to 'Destroy', admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' }
 br
 = link_to 'New Category', new_admin_category_path, class: 'btn'

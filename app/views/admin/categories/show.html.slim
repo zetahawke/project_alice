@@ -5,8 +5,8 @@ br
   
 p
   strong
-    | Description:
+    | Description: 
   = @category.description
-= link_to 'Edit', edit_category_path(@category), class: 'btn'
+= link_to 'Edit', edit_admin_category_path(@category), class: 'btn'
 |  | 
-= link_to 'Back', categories_path, class: 'btn btn-default'
+= link_to 'Back', url_for(:back), class: 'btn btn-default'

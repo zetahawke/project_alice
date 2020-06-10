@@ -51,19 +51,19 @@
           i.material-icons.right more_vert
         .row
           .col.s12
-            p
-              = product.description[0..50]
+            p.truncate
+              = product.description
         .row
           .col.s6
             p
-              = link_to 'Facebook', product.facebook_link
+              = link_to 'Facebook', product.facebook_link, target: '_blank'
           .col.s6
             p
-              = link_to 'Instagram', product.instagram_link
+              = link_to 'Instagram', product.instagram_link, target: '_blank'
       .card-action
         .row
           .col.s6
-            = link_to 'Detalles', product_path(product)
+            = link_to 'Detalles', product_path(product), target: '_blank'
           .col.s6
             strong.right
               = number_to_currency(product.price, precision: 0)
