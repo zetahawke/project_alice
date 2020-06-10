@@ -1,6 +1,7 @@
 module Admin
   class ProductsController < AdminController
     before_action :set_product, only: [:show, :edit, :update, :destroy]
+    before_action :set_form_url, only: [:edit, :new]
   
     # GET /products
     # GET /products.json
@@ -72,6 +73,10 @@ module Admin
       # Only allow a list of trusted parameters through.
       def product_params
         params.require(:product).permit(:name, :description, :price, :minimum_price, :minimum_quantity, :facebook_link, :instagram_link, :category_id)
+      end
+
+      def set_form_url
+        @url = params[:action] == 'edit' ? admin_product_path(@product) : admin_products_path
       end
   end
 end

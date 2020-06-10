@@ -1,6 +1,7 @@
 module Admin
   class CategoriesController < AdminController
     before_action :set_category, only: [:show, :edit, :update, :destroy]
+    before_action :set_form_url, only: [:edit, :new]
   
     # GET /categories
     # GET /categories.json
@@ -71,6 +72,10 @@ module Admin
       # Only allow a list of trusted parameters through.
       def category_params
         params.require(:category).permit(:name, :description)
+      end
+
+      def set_form_url
+        @url = params[:action] == 'edit' ? admin_category_path(@tag) : admin_categories_path
       end
   end
 end
