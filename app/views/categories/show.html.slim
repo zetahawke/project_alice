@@ -2,10 +2,13 @@ span.card-title
   = @category.name
 hr
 br
-p
-  strong
-    | Description:
-  = @category.description
-= link_to 'Back', categories_path, class: 'btn btn-default'
+.row
+  p
+    strong
+      | Description: 
+    = @category.description
 
-= render '/products/table', products: @category.products
+.row
+  = render '/products/table', products: @category.products
+.row
+  = link_to 'Back', categories_path, class: 'btn btn-default'
