@@ -20,14 +20,18 @@ import '../stylesheets/application'
 import 'materialize-css/dist/js/materialize'
 
 document.addEventListener('DOMContentLoaded', function() {
-  var options = {};
-  var elems = document.querySelectorAll('.sidenav');
-  M.Sidenav.init(elems, options);
-  var elems = document.querySelectorAll('.sidenav-left');
-  M.Sidenav.init(elems, {
-    edge: 'left',
-    preventScrolling: false
+  document.addEventListener('turbolinks:load', function () {
+    var options = {};
+    var elems = document.querySelectorAll('.sidenav');
+    M.Sidenav.init(elems, options);
+    var elems = document.querySelectorAll('.sidenav-left');
+    M.Sidenav.init(elems, {
+      edge: 'left',
+      preventScrolling: false
+    });
+    var elems = document.querySelectorAll('.sidenav-right');
+    M.Sidenav.init(elems, {edge: 'right'});
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, options);
   });
-  var elems = document.querySelectorAll('.sidenav-right');
-  M.Sidenav.init(elems, {edge: 'right'});
 });
