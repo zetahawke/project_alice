@@ -2,44 +2,4 @@ span.card-title
   | Productos
 hr
 br
-table.table
-  thead
-    tr
-      th
-        | Name
-      th
-        | Description
-      th
-        | Price
-      th
-        | Minimum price
-      th
-        | Minimum quantity
-      th
-        | Facebook link
-      th
-        | Instagram link
-      th
-        | Category
-      th[colspan="3"]
-  tbody
-    - @products.each do |product|
-      tr
-        td
-          = product.name
-        td
-          = product.description
-        td
-          = product.price
-        td
-          = product.minimum_price
-        td
-          = product.minimum_quantity
-        td
-          = product.facebook_link
-        td
-          = product.instagram_link
-        td
-          = product.category_id
-        td
-          = link_to 'Show', product, class: 'btn'
+= render 'table', products: @products
