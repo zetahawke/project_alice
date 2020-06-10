@@ -72,7 +72,7 @@ module Admin
   
       # Only allow a list of trusted parameters through.
       def product_params
-        params.require(:product).permit(:name, :description, :price, :minimum_price, :minimum_quantity, :facebook_link, :instagram_link, :category_id)
+        params.require(:product).permit(:name, :description, :price, :minimum_price, :minimum_quantity, :facebook_link, :instagram_link, :category_id, stock_attributes: [:amount, :id], product_tags_attributes: [:tag_id, :product_id])
       end
 
       def set_form_url
