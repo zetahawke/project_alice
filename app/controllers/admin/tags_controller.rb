@@ -1,6 +1,7 @@
 module Admin
   class TagsController < AdminController
     before_action :set_tag, only: [:show, :edit, :update, :destroy]
+    before_action :set_form_url, only: [:edit, :new]
   
     # GET /tags
     # GET /tags.json
@@ -71,6 +72,10 @@ module Admin
       # Only allow a list of trusted parameters through.
       def tag_params
         params.require(:tag).permit(:name)
+      end
+
+      def set_form_url
+        @url = params[:action] == 'edit' ? admin_tag_path(@tag) : admin_tags_path
       end
   end
 end

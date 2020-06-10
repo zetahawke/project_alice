@@ -6,8 +6,9 @@
         |  prohibited this stock from being saved:
       ul
         - stock.errors.full_messages.each do |message|
-          li
-            = message
+          li.red.white-text.m-10
+            span.p-10
+              = message
   .field
     = form.label :amount
     = form.number_field :amount

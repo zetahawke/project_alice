@@ -1,13 +1,14 @@
 = form_with(model: tag, local: true, url: admin_tags_path) do |form|
   - if tag.errors.any?
     #error_explanation
-      h2
+      h5
         = pluralize(tag.errors.count, "error")
         |  prohibited this tag from being saved:
       ul
         - tag.errors.full_messages.each do |message|
-          li
-            = message
+          li.red.white-text.m-10
+            span.p-10
+              = message
   .field
     = form.label :name
     = form.text_field :name
