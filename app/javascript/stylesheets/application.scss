@@ -27,3 +27,24 @@ body, html {
 .allow-overflow {
   overflow: auto;
 }
+
+.main-image {
+  width: 450px
+}
+.secondary-image {
+  width: 120px
+}
+.thumb-image {
+  width: 45px
+}
+
+.card.small .card-image + .card-content, .card.medium .card-image + .card-content, .card.large .card-image + .card-content {
+  max-height: 58%;
+}
+
+$breakpoint-large-pc: 1280px;
+@media (min-width: $breakpoint-large-pc) {
+  .card.medium {
+    height: 450px;
+  }
+}

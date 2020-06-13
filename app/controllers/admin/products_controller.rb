@@ -28,6 +28,7 @@ module Admin
     # POST /products.json
     def create
       @product = Product.new(product_params)
+      # purge_attachments
   
       respond_to do |format|
         if @product.save
@@ -43,6 +44,7 @@ module Admin
     # PATCH/PUT /products/1
     # PATCH/PUT /products/1.json
     def update
+      purge_attachments
       respond_to do |format|
         if @product.update(product_params)
           format.html { redirect_to @product, notice: 'Product was successfully updated.' }
@@ -72,11 +74,18 @@ module Admin
   
       # Only allow a list of trusted parameters through.
       def product_params
-        params.require(:product).permit(:name, :description, :price, :minimum_price, :minimum_quantity, :facebook_link, :instagram_link, :category_id, stock_attributes: [:amount, :id], product_tags_attributes: [:tag_id, :product_id])
+        params.require(:product).permit(:name, :description, :price, :minimum_price, :minimum_quantity, :facebook_link, :instagram_link, :category_id, :main_image, secondary_images: [], stock_attributes: [:amount, :id], product_tags_attributes: [:tag_id, :product_id])
       end
 
       def set_form_url
         @url = params[:action] == 'edit' ? admin_product_path(@product) : admin_products_path
+      end
+
+      def purge_attachments
+        ['main_image', 'secondary_images'].each do |kind|
+          @product.send(kind).purge
+          @product.send(kind).attach(params[kind.try(:to_sym)])
+        end
       end
   end
 end

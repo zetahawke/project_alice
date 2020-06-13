@@ -15,11 +15,13 @@ Make sure to have all the necessary stuff to start building this up.
 - Rails 6.0.3.1
 - Bundler >= 2.14
 - Postgresql >= 9.2 (pg_cli and pg gem >= 0.18)
+- ImageMagic
 
 ```bash
 bundle install
 rake db:create
 rake db:migrate
+sudo apt-get install imagemagick
 ```
 
 ## Usage

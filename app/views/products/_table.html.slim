@@ -1,84 +1,45 @@
-/ table.table.responsive-table
-/   thead
-/     tr
-/       th
-/         | Name
-/       th
-/         | Description
-/       th
-/         | Price
-/       th
-/         | Minimum price
-/       th
-/         | Minimum quantity
-/       th
-/         | Facebook link
-/       th
-/         | Instagram link
-/       th
-/         | Category
-/       th[colspan="3"]
-/   tbody
-/     - products.each do |product|
-/       tr
-/         td
-/           = product.name
-/         td
-/           = product.description
-/         td
-/           = product.price
-/         td
-/           = product.minimum_price
-/         td
-/           = product.minimum_quantity
-/         td
-/           = product.facebook_link
-/         td
-/           = product.instagram_link
-/         td
-/           = product.category_id
-/         td
-/           = link_to 'Mostrar', product, class: 'btn'
-
-- products.each do |product|
-  .col.s12.m4
-    .card.medi.sticky-action
-      .card-image.waves-effect.waves-block.waves-light
-        img.activator src="images/office.jpg" /
-      .card-content
-        span.card-title.activator.grey-text.text-darken-4
-          = product.name
-          i.material-icons.right more_vert
-        .row
-          .col.s12
-            p.truncate
-              = product.description
-        .row
-          .col.s6
-            p
-              = link_to 'Facebook', product.facebook_link, target: '_blank'
-          .col.s6
-            p
-              = link_to 'Instagram', product.instagram_link, target: '_blank'
-      .card-action
-        .row
-          .col.s6
-            = link_to 'Detalles', product_path(product), target: '_blank'
-          .col.s6
-            strong.right
-              = number_to_currency(product.price, precision: 0)
-      .card-reveal
-        span.card-title.grey-text.text-darken-4
-          = product.name
-          i.material-icons.right close
-        p
-          = product.description
-        p
-          strong
-            | Precio unitario: 
-          = number_to_currency(product.price, precision: 0)
-        p
-          strong
-            | Precio mayor de #{product.minimum_quantity} unidades: 
-          = number_to_currency(product.minimum_price, precision: 0)
+.row
+  - products.each do |product|
+    .col.s12.m4.l3.xl2
+      .card.medium.sticky-action
+        .card-image.waves-effect.waves-block.waves-light
+          - if product.main_image.attached?
+            = link_to product_path(product) do
+              = image_tag product.main_image.variant(resize_to_limit: [400, nil]), class: 'center-align'
+        .card-content
+          span.card-title.activator.grey-text.text-darken-4
+            = product.name
+            i.material-icons.right more_vert
+          .row
+            .col.s12
+              p.truncate
+                = product.description
+          .row
+            .col.s6
+              p
+                = link_to 'Facebook', product.facebook_link, target: '_blank'
+            .col.s6
+              p
+                = link_to 'Instagram', product.instagram_link, target: '_blank'
+        .card-action
+          .row
+            .col.s6
+              = link_to 'Detalles', product_path(product), target: '_blank'
+            .col.s6
+              strong.right
+                = number_to_currency(product.price, precision: 0)
+        .card-reveal
+          span.card-title.grey-text.text-darken-4
+            = product.name
+            i.material-icons.right close
+          p
+            = product.description
+          p
+            strong
+              | Precio unitario: 
+            = number_to_currency(product.price, precision: 0)
+          p
+            strong
+              | Precio mayor de #{product.minimum_quantity} unidades: 
+            = number_to_currency(product.minimum_price, precision: 0)
 
