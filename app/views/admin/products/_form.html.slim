@@ -1,37 +1,65 @@
-= form_with(model: product, local: true) do |form|
+= form_with(model: product, local: true, url: @url) do |form|
   - if product.errors.any?
     #error_explanation
-      h2
+      h5
         = pluralize(product.errors.count, "error")
         |  prohibited this product from being saved:
       ul
         - product.errors.full_messages.each do |message|
-          li
-            = message
-  .field
+          li.red.white-text.m-10
+            span.p-10
+              = message
+  .input-field
     = form.label :name
     = form.text_field :name
-  .field
+  .input-field
     = form.label :description
     = form.text_field :description
-  .field
+  .input-field
     = form.label :price
     = form.number_field :price
-  .field
+  .input-field
     = form.label :minimum_price
     = form.number_field :minimum_price
-  .field
+  .input-field
     = form.label :minimum_quantity
     = form.number_field :minimum_quantity
-  .field
+  .input-field
     = form.label :facebook_link
     = form.text_field :facebook_link
-  .field
+  .input-field
     = form.label :instagram_link
     = form.text_field :instagram_link
-  .field
+  .input-field
+    = form.select(:category_id) do
+      option value="" disabled='disabled' Elija Categoría
+      = options_for_select(Category.all.pluck(:name, :id), product.category_id)
     = form.label :category_id
-    = form.text_field :category_id
+  .input-field
+    select multiple='' name='product[product_tags_attributes][][tag_id]' id='product_product_tags_attributes'
+      option value="" disabled='disabled' Elija Tags
+      - Tag.all.each do |tag|
+        = "<option value='#{tag.id}' #{'selected' if product.product_tags.pluck(:tag_id).include?(tag.id)}>#{tag.name}</option>".html_safe
+    = form.label :product_tags
+  = form.fields_for :stock do |form_stock|
+    .input-field
+      = form_stock.label :amount
+      = form_stock.number_field :amount
+  .input-field
+    .file-field.input-field
+      .btn
+        span Imagen Principal
+        input type="file" name='product[main_image]' id='product_main_image'
+      .file-path-wrapper
+        input.file-path.validate type="text" placeholder='Esta será la imagen principal del producto'
+  .input-field
+    .file-field.input-field
+      .btn
+        span Secundarias
+        input multiple="multiple" type="file" name='product[secondary_images][]' id='product_secondary_images'
+      .file-path-wrapper
+        input.file-path.validate placeholder="Agrega 1 o más fotos" type="text"
+
   .actions.pt-20.mh-70
     button.btn.btn-small.right type='submit' Guardar
-    = link_to 'Atrás', url_for(:back), class: 'btn btn-default left'
+    = link_to 'Atrás', admin_products_path, class: 'btn btn-default left'
