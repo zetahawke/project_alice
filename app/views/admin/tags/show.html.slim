@@ -8,4 +8,4 @@ p
   = @tag.name
 = link_to 'Editar', edit_admin_tag_path(@tag), class: 'btn'
 |  | 
-= link_to 'Atrás', url_for(:back), class: 'btn btn-default'
+= link_to 'Atrás', url_for(:back), class: 'btn btn-default', data: { turbolinks: 'false' }

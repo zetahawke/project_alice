@@ -1,5 +1,20 @@
-ul#sidenav-left.sidenav.sidenav-left.sidebar
-  li
-    = link_to 'Productos', products_path
-  li
-    = link_to 'Categorias', categories_path
+div#sidenav-left.sidenav.sidenav-left.sidebar
+  ul.collapsible
+    li class="#{'active' if params[:controller].include?('categories')}"
+      .collapsible-header
+        i.material-icons chevron_right
+        | Categorias
+      .collapsible-body
+        .collection
+          - @random_categories.each do |category|
+            = link_to category.name[0..10], category_path(category), class: "collection-item #{'active' if (params[:category_id] || params[:id]).to_s == category.id.to_s}"
+          = link_to 'Todas', categories_path, class: 'collection-item', data: { turbolinks: 'false' }
+    li class="#{'active' if params[:tag_id]}"
+      .collapsible-header
+        i.material-icons chevron_right
+        | Tags
+      .collapsible-body
+        .collection
+          - @random_tags.each do |tag|
+            = link_to tag.name[0..10], products_path(tag_id: tag.id), class: "collection-item #{'active' if (params[:tag_id] || params[:id]).to_s == tag.id.to_s}"
+          = link_to 'Todas', products_path, class: 'collection-item', data: { turbolinks: 'false' }

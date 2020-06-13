@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = params[:tag_id] ? Product.left_outer_joins(:tags).where(tags: { id: params[:tag_id] }).distinct : Product.all
   end
 
   # GET /products/1

@@ -11,4 +11,4 @@ br
 .row
   = render '/products/table', products: @category.products
 .row
-  = link_to 'Atrás', url_for(:back), class: 'btn btn-default'
+  = link_to 'Atrás', url_for(:back), class: 'btn btn-default', data: { turbolinks: 'false' }

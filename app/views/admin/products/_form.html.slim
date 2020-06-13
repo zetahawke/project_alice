@@ -47,7 +47,6 @@
       = form_stock.number_field :amount
   .input-field
     .file-field.input-field
-      = form.hidden_field :main_image, value: form.object.main_image.signed_id if form.object.main_image.attached?
       .btn
         span Imagen Principal
         = form.file_field :main_image
@@ -55,7 +54,6 @@
         input.file-path.validate type="text" placeholder='Esta será la imagen principal del producto'
   .input-field
     .file-field.input-field
-      = form.hidden_field :secondary_images, value: form.object.secondary_images.signed_id if form.object.secondary_images.attached?
       .btn
         span Secundarias
         = form.file_field :secondary_images, multiple: true
