@@ -33,5 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     M.Sidenav.init(elems, {edge: 'right'});
     var elems = document.querySelectorAll('select');
     var instances = M.FormSelect.init(elems, options);
+    var elems = document.querySelectorAll('.materialboxed');
+    var instances = M.Materialbox.init(elems, options);
   });
 });

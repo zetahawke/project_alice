@@ -47,16 +47,18 @@
       = form_stock.number_field :amount
   .input-field
     .file-field.input-field
+      = form.hidden_field :main_image, value: form.object.main_image.signed_id if form.object.main_image.attached?
       .btn
         span Imagen Principal
-        input type="file" name='product[main_image]' id='product_main_image'
+        = form.file_field :main_image
       .file-path-wrapper
         input.file-path.validate type="text" placeholder='Esta será la imagen principal del producto'
   .input-field
     .file-field.input-field
+      = form.hidden_field :secondary_images, value: form.object.secondary_images.signed_id if form.object.secondary_images.attached?
       .btn
         span Secundarias
-        input multiple="multiple" type="file" name='product[secondary_images][]' id='product_secondary_images'
+        = form.file_field :secondary_images, multiple: true
       .file-path-wrapper
         input.file-path.validate placeholder="Agrega 1 o más fotos" type="text"
 
