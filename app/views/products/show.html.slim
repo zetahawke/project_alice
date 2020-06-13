@@ -12,7 +12,7 @@ p
       .row
         - @product.secondary_images.each do |secondary_image|
           .col.s12.m6.l2
-            = image_tag secondary_image.variant(resize_to_limit: [1200, nil]), class: 'materialboxed secondary-image center-align'
+            = image_tag secondary_image.variant(resize_to_limit: [1200, nil]), class: 'materialboxed image-grid center-align'
 p
   strong
     | Description: 
@@ -42,4 +42,4 @@ p
     | Category: 
   = @product.category_id
 
-= link_to 'Atrás', url_for(:back), class: 'btn btn-default'
+= link_to 'Atrás', url_for(:back), class: 'btn btn-default', data: { turbolinks: 'false' }

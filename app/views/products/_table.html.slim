@@ -1,19 +1,25 @@
 .row
+  - unless products.size > 0
+    p
+      | Aún no hay productos en este segmento.
   - products.each do |product|
     .col.s12.m4.l3.xl2
       .card.medium.sticky-action
         .card-image.waves-effect.waves-block.waves-light
           - if product.main_image.attached?
             = link_to product_path(product) do
-              = image_tag product.main_image.variant(resize_to_limit: [400, nil]), class: 'center-align'
+              = image_tag product.main_image.variant(resize_to_limit: [200, nil]), class: 'center-align secondary-image'
         .card-content
-          span.card-title.activator.grey-text.text-darken-4
-            = product.name
-            i.material-icons.right more_vert
           .row
-            .col.s12
-              p.truncate
-                = product.description
+            span.card-title.grey-text.text-darken-4
+              strong
+                = product.name[0..11]
+              
+            .row
+              .col.s12
+                p.truncate.activator.pointer
+                  = product.description
+                  i.material-icons.right more_vert
           .row
             .col.s6
               p
