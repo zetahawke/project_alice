@@ -30,6 +30,6 @@ p
   strong
     | Category: 
   = @product.category_id
-= link_to 'Edit', edit_admin_product_path(@product), class: 'btn'
+= link_to 'Editar', edit_admin_product_path(@product), class: 'btn'
 |  | 
-= link_to 'Back', admin_products_path, class: 'btn btn-default'
+= link_to 'Atrás', url_for(:back), class: 'btn btn-default'

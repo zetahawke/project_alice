@@ -10,6 +10,6 @@ p
   strong
     | Product: 
   = @stock.product_id
-= link_to 'Edit', edit_admin_stock_path(@stock), class: 'btn right'
+= link_to 'Editar', edit_admin_stock_path(@stock), class: 'btn right'
 |  | 
-= link_to 'Back', admin_stocks_path, class: 'btn btn-default left'
+= link_to 'Atrás', url_for(:back), class: 'btn btn-default left'

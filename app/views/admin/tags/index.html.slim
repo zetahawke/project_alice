@@ -14,10 +14,10 @@ table.table.responsive-table
         td
           = tag.name
         td
-          = link_to 'Show', admin_tag_path(tag)
+          = link_to 'Mostrar', admin_tag_path(tag)
         td
-          = link_to 'Edit', edit_admin_tag_path(tag)
+          = link_to 'Editar', edit_admin_tag_path(tag)
         td
-          = link_to 'Destroy', admin_tag_path(tag), method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to 'Eliminar', admin_tag_path(tag), method: :delete, data: { confirm: 'Are you sure?' }
 br
-= link_to 'New Tag', new_admin_tag_path, class: 'btn'
+= link_to 'Nuevo Tag', new_admin_tag_path, class: 'btn'
