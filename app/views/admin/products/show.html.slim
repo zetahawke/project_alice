@@ -19,6 +19,10 @@ p
   = @product.description
 p
   strong
+    | SKU: 
+  = @product.sku
+p
+  strong
     | Price: 
   = number_to_currency(@product.price, precision: 0)
 p
