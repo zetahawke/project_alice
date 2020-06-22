@@ -9,6 +9,8 @@ table.table.responsive-table
       th
         | Description
       th
+        | SKU
+      th
         | Price
       th
         | Category
@@ -21,6 +23,9 @@ table.table.responsive-table
         td
           span.truncate style='max-width: 150px;'
             = product.description
+        td
+          span.truncate style='max-width: 150px;'
+            = product.sku
         td
           = product.price
         td
