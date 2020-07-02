@@ -2,49 +2,52 @@ span.card-title
   = @product.name
 hr
 br
-p
-  .center.main-image
-    - if @product.main_image.attached?
-      = image_tag @product.main_image.variant(resize_to_limit: [1200, nil]), class: 'materialboxed main-image center-align'
-p
-  .container
-    .center
-      .row
-        - @product.secondary_images.each do |secondary_image|
-          .col.s12.m6.l2
-            = image_tag secondary_image.variant(resize_to_limit: [1200, nil]), class: 'materialboxed image-grid center-align'
-p
-  strong
-    | Description: 
-  = @product.description
-p
-  strong
-    | SKU: 
-  = @product.sku
-p
-  strong
-    | Price: 
-  = number_to_currency(@product.price, precision: 0)
-p
-  strong
-    | Minimum price: 
-  = number_to_currency(@product.minimum_price, precision: 0)
-p
-  strong
-    | Minimum quantity: 
-  = @product.minimum_quantity
-p
-  strong
-    | Facebook link: 
-  = link_to 'Link', @product.facebook_link
-p
-  strong
-    | Instagram link: 
-  = link_to 'Link', @product.instagram_link
-p
-  strong
-    | Category: 
-  = @product.category_id
+.row
+  .col.s12.m12.l12.xl6
+    p
+      .center.main-image
+        - if @product.main_image.attached?
+          = image_tag @product.main_image.variant(resize_to_limit: [1200, nil]), class: 'materialboxed main-image center-align'
+    p
+      .container
+        .center
+          .row
+            - @product.secondary_images.each do |secondary_image|
+              .col.s12.m6.l2
+                = image_tag secondary_image.variant(resize_to_limit: [1200, nil]), class: 'materialboxed image-grid center-align bordered'
+  .col.s12.m12.l12.xl6
+    p
+      strong
+        | Description: 
+      = @product.description
+    p
+      strong
+        | SKU: 
+      = @product.sku
+    p
+      strong
+        | Price: 
+      = number_to_currency(@product.price, precision: 0)
+    p
+      strong
+        | Minimum price: 
+      = number_to_currency(@product.minimum_price, precision: 0)
+    p
+      strong
+        | Minimum quantity: 
+      = @product.minimum_quantity
+    p
+      strong
+        | Facebook link: 
+      = link_to 'Link', @product.facebook_link
+    p
+      strong
+        | Instagram link: 
+      = link_to 'Link', @product.instagram_link
+    p
+      strong
+        | Category: 
+      = link_to @product.category.name, admin_category_path(@product.category_id)
 = link_to 'Editar', edit_admin_product_path(@product), class: 'btn'
 |  | 
 = link_to 'Atrás', url_for(:back), class: 'btn btn-default', data: { turbolinks: 'false' }
