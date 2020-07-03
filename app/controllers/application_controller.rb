@@ -15,7 +15,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_randomies
-    return if params[:controller].include?('admin')
     set_random_categories
     set_random_tags
   end
