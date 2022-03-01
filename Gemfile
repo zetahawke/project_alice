@@ -58,4 +58,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem "slim-rails"
-gem 'image_processing', '~> 1.11'
+gem 'image_processing', '~> 1.12'
